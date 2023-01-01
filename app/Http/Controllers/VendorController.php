@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class VendorController extends Controller
 {
-    public function AdminDashboard(){
+    public function VendorDashboard(){
         return view('vendor.vendor_dashboard');
     } //End of method
 }
