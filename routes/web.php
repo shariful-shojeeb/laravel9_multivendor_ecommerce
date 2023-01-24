@@ -20,6 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('admin/login',[AdminController::class,'AdminLogin'])->name('admin.login');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -34,6 +36,7 @@ require __DIR__.'/auth.php';
 
 Route::middleware(['auth','role:admin'])->group(function(){
     Route::get('admin/dashboard',[AdminController::class,'AdminDashboard'])->name('admin.dashboard');
+    Route::get('admin/logout',[AdminController::class,'AdminDestroy'])->name('admin.logout');
 });
 
 Route::middleware(['auth','role:vendor'])->group(function(){
